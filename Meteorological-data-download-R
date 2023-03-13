@@ -1,0 +1,12 @@
+i=NULL;x=NULL;n=NULL
+
+for (i in c(2015:2019)) {
+  for (x in c("Gennaio","Febbraio","Marzo","Aprile","Maggio","Giugno","Luglio","Agosto","Settembre","Ottobre","Novembre","Dicembre")) {
+    n<-paste(i, x, collapse = "_")
+    url<-paste("https://www.ilmeteo.it/portale/archivio-meteo/Salerno/",i,"/",x,"?format=csv",sep="")
+    download.file(url, destfile = paste(n, ".csv", sep = ""), method = "wininet")
+ }
+}
+
+###This specific code is for Salerno province, but you can change and create like in line 3 and 4 a "c()" comand in order
+to especify anothers provinces of your interest, in that case you need also to add another for line.
